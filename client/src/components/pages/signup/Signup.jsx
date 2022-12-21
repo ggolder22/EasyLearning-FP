@@ -40,7 +40,7 @@ export default function SignupCard() {
     setError("");
     try {
       await signup(form.emailAddress, form.password);
-      await axios.post("http://localhost:3001/createUser", form);
+      await axios.post("https://easylearning.onrender.com/createUser", form);
       history.push("/");
     } catch (error) {
       setError(error.message);
