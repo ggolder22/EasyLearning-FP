@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 
 const sequelize = new Sequelize(
-  "postgres://germancito:BbEzAET5edNRC2Tot9evIykx0HK8tiOj@dpg-ceh5a5mn6mpg3l5gjvi0-a/elearning_qhfw",
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
   
   {
     logging: false, // set to console.log to see the raw SQL queries
