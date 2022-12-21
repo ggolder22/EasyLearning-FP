@@ -67,7 +67,7 @@ const PostReview = ({ update, setUpdate }) => {
             ...input,
             score: parseInt(input.score)
         })
-        await axios.post("/createReview", input);
+        await axios.post("https://easylearning.onrender.com/createReview", input);
         setUpdate(!update)
     }
 
