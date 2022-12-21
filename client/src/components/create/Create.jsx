@@ -81,7 +81,7 @@ const Create = () => {
   }
 
   const handelSubmit = async () => {
-    const response = await axios.post("http://localhost:3001/createCourse", input)
+    const response = await axios.post("https://easylearning.onrender.com/createCourse", input)
     alert(response.data)
     history.push("/profile")
   }
