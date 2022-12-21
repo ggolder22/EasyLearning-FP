@@ -66,7 +66,7 @@ export default function SplitScreen() {
     setError("");
     try {
       await login(email, password);
-      let response = await axios.get(`http://localhost:3001/getUserByEmail?email=${email}`)
+      let response = await axios.get(`https://easylearning.onrender.com/getUserByEmail?email=${email}`)
       localStorage.setItem("user", JSON.stringify(response.data))
       history.push("/");
     } catch (error) {
