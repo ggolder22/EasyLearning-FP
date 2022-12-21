@@ -1,5 +1,6 @@
 import axios from "axios";
 const {REACT_API_RENDER} = process.env;
+console.log("ger",REACT_API_RENDER );
 
 
 // courses
