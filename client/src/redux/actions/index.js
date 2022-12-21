@@ -1,4 +1,6 @@
 import axios from "axios";
+const {REACT_API_RENDER} = process.env;
+
 
 // courses
 export const GET_ALL_COURSES = "GET_ALL_COURSES";
@@ -34,9 +36,12 @@ export const DELETE_VIDEO = "DELETE_VIDEO";
 //users
 export const GET_ALL_USERS = "GET_ALL_USERS";
 
+
+
+
 export const getAllCourses = () => async (dispatch) => {
   try {
-    const all = await axios.get("/getAllCourses");
+    const all = await axios.get(`${REACT_API_RENDER}/getAllCourses`);
     return dispatch({
       type: GET_ALL_COURSES,
       payload: all.data,
@@ -46,7 +51,7 @@ export const getAllCourses = () => async (dispatch) => {
 
 export const byName = (name) => async (dispatch) => {
   try {
-    const byName = await axios.get(`/getByName?name=${name}`);
+    const byName = await axios.get(`${REACT_API_RENDER}/getByName?name=${name}`);
     return dispatch({
       type: GET_COURSE_BY_NAME,
       payload: byName.data,
@@ -56,7 +61,7 @@ export const byName = (name) => async (dispatch) => {
 
 export const getCourseDetail = (id) => async (dispatch) => {
   try {
-    const detail = await axios.get(`/getDetail/${id}`);
+    const detail = await axios.get(`${REACT_API_RENDER}/getDetail/${id}`);
     return dispatch({
       type: GET_COURSE_DETAIL,
       payload: detail.data,
@@ -74,7 +79,7 @@ export const clearDetail = () => async (dispatch) => {
 
 export const getCategories = () => async (dispatch) => {
   try {
-    const categories = await axios.get("/categories");
+    const categories = await axios.get(`${REACT_API_RENDER}/categories`);
     return dispatch({
       type: GET_CATEGORIES,
       payload: categories.data,
@@ -84,7 +89,7 @@ export const getCategories = () => async (dispatch) => {
 
 export const getTeachers = () => async (dispatch) => {
   try {
-    const teachers = await axios.get("/getAllTeachers");
+    const teachers = await axios.get(`${REACT_API_RENDER}/getAllTeachers`);
     return dispatch({
       type: GET_TEACHERS,
       payload: teachers.data,
@@ -122,7 +127,7 @@ export const buyNow = (payload) => async (dispatch) => {
 };
 
 export const getOrders = () => async (dispatch) => {
-  const orders = await axios.get("/orders"); //hacer ruta
+  const orders = await axios.get(`${REACT_API_RENDER}/orders`); //hacer ruta
   try {
     return dispatch({
       type: GET_ORDERS,
@@ -200,7 +205,7 @@ export const deleteCourse = (id) => async (dispatch) => {
 export const getReviews = (id) => {
   return async function (dispatch) {
     try {
-      var reviews = await axios.get("/getReviews/" + id);
+      var reviews = await axios.get(`${REACT_API_RENDER}/getReviews/${id}`);
       return dispatch({
         type: GET_REVIEWS,
         payload: reviews.data,
@@ -215,7 +220,7 @@ export const getAllCoursesByTeacher = (userId) => {
   return async function (dispatch) {
     try {
       const response = await axios.get(
-        `http://localhost:3001/getAllCoursesByTeacher/${userId}`
+        `${REACT_API_RENDER}/getAllCoursesByTeacher/${userId}`
       );
       return dispatch({
         type: COURSES_BY_TEACHER,
@@ -229,7 +234,7 @@ export const getAllCoursesByTeacher = (userId) => {
 
 export const getAllUsers = () => {
   return async function (dispatch) {
-    var json = await axios.get("/getUsers");
+    var json = await axios.get(`${REACT_API_RENDER}/getUsers`);
     return dispatch({
       type: GET_ALL_USERS,
       payload: json.data,
